@@ -1,0 +1,4 @@
+django==2.1.5
+djangorestframework
+djangorestframework_datatables
+django-cors-headers
