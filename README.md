@@ -1,9 +1,9 @@
 My Music Django React Web Application
-==================================
+-------------------------------------
 ## My web app building steps:-
-
+------------------------------
 ### Setting up the Backend
----------------------------
+
   1. creating my web application workspace.
   > creating the virtual environment
   > installing the requirements.
@@ -13,7 +13,6 @@ My Music Django React Web Application
   3. Creating my app models and registering them in admin.py.
 
 ### Setting up the APIs
------------------------
   1. Update the INSTALLED_APPS and MIDDLEWARE sections accordingly.
   2. Update the admin file.
   3. Testing the server -admin page-.
