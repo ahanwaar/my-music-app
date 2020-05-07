@@ -1,7 +1,7 @@
 My Music Django React Web Application
--------------------------------------
+======================================
 My web app building steps:-
-===========================
+----------------------------
 ### Setting up the Backend
 
   1. creating my web application workspace.
@@ -20,3 +20,5 @@ My web app building steps:-
   5. Creating views.
   6. Updating Urls.
   7. Testing Backend.
+### Setting up the frontend
+  1. set a react app in the backend, then navigate to the parent folder and create react app called frontend.
