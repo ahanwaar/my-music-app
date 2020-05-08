@@ -3,8 +3,8 @@ from django.db import models
 
 class Artist(models.Model):
     """Database model for the Artists"""
-    name = models.CharField('Name',max_length=50)
-    bio = models.TextField(null=False, blank=True)
+    name = models.CharField('Name', max_length=50, unique=True)
+    bio = models.TextField(blank=True)
 
     class Meta:
         verbose_name = 'Artist'
@@ -16,10 +16,9 @@ class Artist(models.Model):
 
 class Album(models.Model):
     """Database model for the Albums"""
-    name = models.CharField('Album Title',max_length=50);
+    name = models.CharField('Album Title', max_length=50);
     year = models.PositiveIntegerField('Year')
-    artist = models.ForeignKey(Artist,on_delete=models.CASCADE,)
-    slug = models.SlugField(max_length=50,null=True, blank=True)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name="albums")
 
     class Meta:
         verbose_name = 'Album'
@@ -31,8 +30,8 @@ class Album(models.Model):
 
 class Song(models.Model):
     """Database model for the Songs"""
-    name = models.CharField('Song',max_length=50);
-    album = models.ForeignKey(Album,on_delete=models.CASCADE,)
+    name = models.CharField('Song', max_length=50);
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name="songs")
 
     class Meta:
         verbose_name = 'Song'

@@ -22,3 +22,4 @@ My web app building steps:-
   7. Testing Backend.
 ### Setting up the frontend
   1. set a react app in the backend, then navigate to the parent folder and create react app called frontend.
+  2. Editng index.css, import bootstrap into the index.js, Update the app.js and Testing frontend.
