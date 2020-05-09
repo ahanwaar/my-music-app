@@ -1,15 +1,11 @@
 import React  from "react";
 
-function ArtistList() {
-    const  artists = ['Sia', 'Marina'];
-
+function ArtistList(props){
     return(
-        <React.Fragment>
-            { artists.map( artist => {
-                return <h3>{artist}</h3>
-            })}
-         </React.Fragment>
+        <div>
+            {props.artists.map( artist => {
+                return(<h4 key={artist.id} >{artist.name} </h4>); })}
+         </div>
     )
 }
-
 export default ArtistList;

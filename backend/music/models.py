@@ -9,7 +9,6 @@ class Artist(models.Model):
         verbose_name = 'Artist'
         verbose_name_plural = 'Artists'
 
-
     def __str__(self):
         return self.name
 

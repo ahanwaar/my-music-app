@@ -5,16 +5,20 @@ from .models import Artist, Album, Song
 class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
-        fields = ('title', 'album', 'artists')
+        fields = ('title',)
 
 
 class AlbumSerializer(serializers.ModelSerializer):
+    songs = SongSerializer(many=True)
+
     class Meta:
         model = Album
-        fields = ('title', 'year', 'artist', )
+        fields = ('title', 'year', 'songs', )
 
 
 class ArtistSerializer(serializers.ModelSerializer):
+    albums = AlbumSerializer(many=True)
+
     class Meta:
         model = Artist
-        fields = ('name',)
+        fields = ('name', 'albums',)

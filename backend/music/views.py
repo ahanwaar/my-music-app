@@ -1,11 +1,13 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Artist, Album, Song
 from .serializers import AlbumSerializer, ArtistSerializer, SongSerializer
+from rest_framework.authentication import TokenAuthentication
 
 
 class SongViewSet(ModelViewSet):
     queryset = Song.objects.all().order_by('title')
     serializer_class = SongSerializer
+    authentication_classes = (TokenAuthentication,)
 
     def get_song_options(self):
         return "options", {
@@ -22,6 +24,7 @@ class SongViewSet(ModelViewSet):
 class AlbumViewSet(ModelViewSet):
     queryset = Album.objects.all().order_by('year')
     serializer_class = AlbumSerializer
+    authentication_classes = (TokenAuthentication,)
 
     def get_album_options(self):
         return "options", {
@@ -38,6 +41,7 @@ class AlbumViewSet(ModelViewSet):
 class ArtistViewSet(ModelViewSet):
     queryset = Artist.objects.all().order_by('name')
     serializer_class = ArtistSerializer
+    authentication_classes = (TokenAuthentication,)
 
     def get_artist_options(self):
         return "options", {
