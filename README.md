@@ -24,5 +24,8 @@ My web app building steps:-
   1. set a react app in the backend, then navigate to the parent folder and create react app called frontend.
   2. Preparing the frontend for coding.
   3. Adding components folder, Define the lists function and testing it.
+  4. Testing.
+  5. Done.
+  
   
   
