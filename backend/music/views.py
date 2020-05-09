@@ -4,12 +4,12 @@ from .serializers import AlbumSerializer, ArtistSerializer, SongSerializer
 
 
 class SongViewSet(ModelViewSet):
-    queryset = Song.objects.all().order_by('name')
+    queryset = Song.objects.all().order_by('title')
     serializer_class = SongSerializer
 
     def get_song_options(self):
         return "options", {
-            "song": [{'label': obj.name, 'value': obj.pk} for obj in Song.objects.all()],
+            "song": [{'label': obj.title, 'value': obj.pk} for obj in Song.objects.all()],
         }
 
     def get_options(self):
@@ -25,7 +25,7 @@ class AlbumViewSet(ModelViewSet):
 
     def get_album_options(self):
         return "options", {
-            "album": [{'label': obj.name, 'value': obj.pk} for obj in Album.objects.all()],
+            "album": [{'label': obj.title, 'value': obj.pk} for obj in Album.objects.all()],
         }
 
     def get_options(self):
