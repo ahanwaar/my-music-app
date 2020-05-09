@@ -1,8 +1,14 @@
 import React  from "react";
 
 function ArtistList() {
+    const  artists = ['Sia', 'Marina'];
+
     return(
-        <h2>List</h2>
+        <React.Fragment>
+            { artists.map( artist => {
+                return <h3>{artist}</h3>
+            })}
+         </React.Fragment>
     )
 }
 
