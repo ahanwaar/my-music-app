@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'rest_framework',  # added
     'rest_framework.authtoken',  # added
     'corsheaders',  # added
@@ -58,6 +59,9 @@ TEMPLATES = [
         },
     },
 ]
+GRAPHENE = {
+    'SCHEMA': 'music.schema.schema'
+}
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
