@@ -12,7 +12,7 @@ SECRET_KEY = 's0r_s$89!usixme7hmqzp-s4bzpc5mgq)-n&f-hl(5)1%43pev'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', ]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -23,9 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'graphene_django',
-    'rest_framework',  # added
-    'rest_framework.authtoken',  # added
+    'graphene_django',  # added
     'corsheaders',  # added
     'music',  # added
 ]
@@ -35,8 +33,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',  # added
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #  'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -47,7 +44,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,13 +109,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # we whitelist localhost:3000 because that's where frontend will be served
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'http://localhost:8080',
-)
+#  CORS_ORIGIN_WHITELIST = (
+#  'http://localhost:3000',
+#  'http://localhost:8080',)
 
-# New
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'music', 'static'),
-)
+# Django Cors Headers
+CORS_ORIGIN_ALLOW_ALL = True

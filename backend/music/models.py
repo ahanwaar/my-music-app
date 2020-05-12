@@ -4,6 +4,8 @@ from django.db import models
 class Artist(models.Model):
     """Database model for the Artists"""
     name = models.CharField('Name', max_length=50, unique=True)
+    artist_poster = models.URLField(blank=True, null=True)
+    slug = models.SlugField(max_length=50, null=True, blank=True, unique=True)
 
     class Meta:
         verbose_name = 'Artist'
@@ -19,6 +21,7 @@ class Album(models.Model):
     # many albums can be related to the same artist
     year = models.PositiveIntegerField('Year')
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name="albums")
+    album_poster = models.URLField(blank=True, null=True)
 
     class Meta:
         verbose_name = 'Album'
@@ -33,8 +36,6 @@ class Song(models.Model):
     title = models.CharField('Song', max_length=50);
     # many songs can be related to the same album
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name="songs")
-    # many artists can sing the same song
-    artists = models.ManyToManyField(Artist)
 
     class Meta:
         verbose_name = 'Song'

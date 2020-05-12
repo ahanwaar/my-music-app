@@ -1,36 +1,76 @@
-import React, {Component} from 'react';
-import './App.css';
-import ArtistList from "./components/ArtistList";
+import React from "react";
+import { Route, Switch, Link } from "react-router-dom"
+import "./App.css"
+// import Apollo framework query hook
+import { useQuery } from '@apollo/react-hooks'; // New
+// import our queries previously defined
+import { ARTIST_QUERY, ARTISTS_LIST_QUERY } from "./query" //New
 
-class App extends Component {
-    state ={
-        artists :[],
-        albums :[],
-        songs: [],
-    }
-
-    componentDidMount() {
-      //fetch data
-      fetch('http://127.0.0.1:8000/api/artists/', {
-          method: 'Get',
-          headers: {
-              'Authorization': 'Token 43edb57ff6508957c16bd0c5e8967eeae985527e'
-          }
-      }).then(resp => resp.json())
-          .then(res => this.setState({artists: res}))
-      .catch(error => console.log(error))
-    }
-
-    render() {
-        return (
+const App = () => {
+    return (
         <div className="App">
-            <h1>Artist Lists :</h1>
-            <div className="layout">
-                <ArtistList artists={this.state.artists} albums={this.state.albums} />
-            </div>
+            <Switch>
+                <Route exact path="/" component={MainPage} ></Route>
+                <Route exact path="/artist/:slug" component={MoviePage} ></Route>
+            </Switch>
         </div>
-        );
-    }
+    )
 }
 
-export default App;
+const MainPage = (props) => {
+    const { loading, error, data } = useQuery(ARTISTS_LIST_QUERY);
+    if (loading) return <div>Loading</div>
+    if (error) return <div>Unexpected Error: {error.message}</div>
+    return(
+        <div>
+            {data && data.artists &&
+                data.artists.map(artist => (
+                    <div className="artist-card" key={artist.slug}>
+
+                        <img
+                            className="artist-card-image"
+                            src={artist.artistPoster}
+                            alt={artist.name + " poster"}
+                            title={artist.name + " poster"}
+                        />
+                        <Link to={`/artist/${artist.slug}`} className="movie-card-link" />
+                    </div>
+                ))
+            }
+        </div>
+    )
+}
+
+const MoviePage = (props) => {
+    // uncomment to see which props are passed from router
+    //console.log(props)
+    // due to we make slug parameter dynamic in route component,
+    // urlParameters will look like this { slug: 'slug-of-the-selected-movie' }
+    const urlParameters = props.match.params
+    const { loading, error, data } = useQuery(ARTIST_QUERY, {
+        variables:{slug:urlParameters.slug}
+    });
+    if (loading) return <div>Loading</div>
+    if (error) return <div>Unexpected Error: {error.message}</div>
+
+    return (
+        <div className="movie-page">
+        <Link to="/" className="back-button" >Main Page</Link>
+            {data && data.artist &&
+                <div className="movie-page-box">
+                    <img
+                        className="movie-page-image"
+                        src={data.artist.artistUrl}
+                        alt={data.artist.name + " poster"}
+                        title={data.artist.name + " poster"}
+                    />
+                    <div className="movie-page-info">
+                        <h1>{data.artist.name}</h1>
+                        <br />
+                    </div>
+                </div>
+            }
+        </div>
+    )
+}
+export default App

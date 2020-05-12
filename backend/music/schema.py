@@ -12,10 +12,15 @@ class ArtistType(DjangoObjectType):
     class Meta:
         model = Artist
 
+    def resolve_artist_poster(self, info):
+         return self.artist_poster
 
 class AlbumType(DjangoObjectType):
     class Meta:
         model = Album
+
+    def resolve_album_poster(self, info):
+         return self.album_poster
 
 
 class Query(ObjectType):
@@ -61,4 +66,3 @@ class Query(ObjectType):
 
 
 schema = graphene.Schema(query=Query)
-
