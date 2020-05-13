@@ -6,17 +6,19 @@ import gql from "graphql-tag";
 export const ARTISTS_LIST_QUERY = gql`
     query artists{
         artists{
-            name, artistPoster
+            id, name, artistPoster,albums{albumPoster}
         }
     }
 `
 // Note the usage of argument.
 // the exclamation mark makes the slug argument as required
 // without it , argument will be optional
-export const ARTIST_QUERY = gql`
+export const ARTIST_albums = gql`
     query artist($slug:String!){
         artist(slug:$slug){
-            id, name, artistPoster, slug
+            slug,
+            albums{
+            albumPoster, title}
         }
     }
 `
