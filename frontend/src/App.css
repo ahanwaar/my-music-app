@@ -3,21 +3,24 @@
   padding-right: 70px;
   padding-left:400px;
   padding-bottom: 60px;
-  display: inline-flex;
   height: 500px;
 
 }
+.root{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,11vw);
+  grid-gap: 20px;
+}
 .artist-card{
-    display: inline;
 }
 
 .App img{
-    overflow: auto;
+  object-fit: cover;
   display: block;
   border: 1px solid white;
   width: 150px;
   height:150px;
-  margin: 20px;
   background: linear-gradient(to left bottom, rgba(255,255,255,0.3) 10%,
   rgba(255,255,255,0.6) 50%,
                                               rgba(255,255,255,0.3) 90%);

@@ -23,7 +23,7 @@ const MainPage = (props) => {
     return(
         <div className="root">
             {data && data.artists &&
-                data.artists.map(artist => (
+                data.artists.map((artist) => (
                     <div className="artist-card" key={artist.id}>
                         <a href="#link">
                             <img
