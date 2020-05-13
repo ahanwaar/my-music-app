@@ -22,7 +22,7 @@ const MainPage = (props) => {
     if (loading) return <div>Loading</div>
     if (error) return <div>Unexpected Error: {error.message}</div>
     return(
-        <div>
+        <div className="root">
             {data && data.artists &&
                 data.artists.map(artist => (
                     <div className="artist-card" key={artist.slug}>

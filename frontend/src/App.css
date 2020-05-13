@@ -9,9 +9,11 @@ table{
    border-spacing: 30px;
 }
 
-img{
+.artist-card-image{
     height:150px;
     width: 150px;
+    border-spacing: 30px;
+    display: table;
 }
 
 td{
@@ -20,7 +22,7 @@ td{
   height:150px;
   margin: 20px;
   background: linear-gradient(to left bottom, rgba(255,255,255,0.3) 10%,
-                                              rgba(255,255,255,0.6) 50%,
+  rgba(255,255,255,0.6) 50%,
                                               rgba(255,255,255,0.3) 90%);
 }
 
@@ -29,4 +31,3 @@ td{
     width:150px;
     height:150px;
 }
-

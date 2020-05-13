@@ -117,21 +117,21 @@ a{
 
 @font-face {
   font-family: BebasNeue-bold;
-  src: url("../../fonts/BebasNeue Bold.ttf");
+  src: url("../../public/fonts/BebasNeue Bold.ttf");
 }
 @font-face {
   font-family: BebasNeue-light;
-  src: url("../../fonts/BebasNeue Light.ttf");
+  src: url("../../public/fonts/BebasNeue Light.ttf");
 }
 @font-face {
   font-family: BebasNeue-book;
-  src: url("../../fonts/BebasNeue Book.ttf");
+  src: url("../../public/fonts/BebasNeue Book.ttf");
 }
 @font-face {
   font-family: BebasNeue-regular;
-  src: url("../../fonts/BebasNeue Regular.ttf");
+  src: url("../../public/fonts/BebasNeue Regular.ttf");
 }
 @font-face {
   font-family: BebasNeue-thin;
-  src: url("../../fonts/BebasNeue Thin.ttf");
+  src: url("../../public/fonts/BebasNeue Thin.ttf");
 }

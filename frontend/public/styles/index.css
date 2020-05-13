@@ -17,7 +17,10 @@ a{
   list-style: none;
 }
 .nav li{
-  font-family: BebasNeue-regular;
+  vertical-align: middle;
+  font-family: 'Bebas Neue';
+  font-weight: bold;
+  font-style: normal ;
   font-size: 1.2em;
   line-height: 40px;
   height: 30px;
@@ -45,13 +48,15 @@ a{
   padding-left: 70px;
   padding-top: 80px;
   padding-bottom: 80px;
-  font-family: BebasNeue-bold;
+  font-family: 'Bebas Neue';
+  font-weight: bold;
+  font-style: normal;
   text-align: left;
   font-size: 30px;
   color: white;
 }
-.part1 .rightP{
-  float: right;
+.part1 .root{
+  float: left;
   padding-right: 70px;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -78,7 +83,8 @@ a{
   padding-left: 70px;
   padding-top: 60px;
   font-size: 2em;
-  font-family: BebasNeue-bold;
+  font-family: 'Bebas Neue';
+  font-weight: bold;
 
 }
 .footer{
@@ -86,7 +92,8 @@ a{
   background: #16181c;
   padding-top: 70px;
   padding-left: 70px;
-  font-family: BebasNeue-bold;
+  font-family: 'Bebas Neue';
+  font-weight: bold;
   color: white;
 }
 .footer .menu{
@@ -101,7 +108,8 @@ a{
 .bottomNav{
   height: 25px;
   padding-left: 70px;
-  font-family: BebasNeue-bold;
+  font-family: 'Bebas Neue';
+  font-weight: bold;
   background: #16181c;
 
 }
@@ -115,23 +123,31 @@ a{
   text-align: center;
 }
 
+
 @font-face {
-  font-family: BebasNeue-bold;
-  src: url("../../fonts/BebasNeue Bold.ttf");
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeue-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: BebasNeue-light;
-  src: url("../../fonts/BebasNeue Light.ttf");
+    font-family: 'Bebas Neue Book';
+    src: url('../fonts/BebasNeueBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: BebasNeue-book;
-  src: url("../../fonts/BebasNeue Book.ttf");
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeueLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: BebasNeue-regular;
-  src: url("../../fonts/BebasNeue Regular.ttf");
-}
-@font-face {
-  font-family: BebasNeue-thin;
-  src: url("../../fonts/BebasNeue Thin.ttf");
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeueBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
