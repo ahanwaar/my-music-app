@@ -11,7 +11,6 @@ const App = () => {
         <div className="App">
             <Switch>
                 <Route exact path="/" component={MainPage} ></Route>
-                <Route exact path="/artist/:slug" component={MoviePage} ></Route>
             </Switch>
         </div>
     )
@@ -25,15 +24,17 @@ const MainPage = (props) => {
         <div className="root">
             {data && data.artists &&
                 data.artists.map(artist => (
-                    <div className="artist-card" key={artist.slug}>
-
-                        <img
+                    <div className="artist-card" key={artist.id}>
+                        <a href="#link">
+                            <img
                             className="artist-card-image"
                             src={artist.artistPoster}
-                            alt={artist.name + " poster"}
-                            title={artist.name + " poster"}
+                            alt={artist.name}
+                            title={artist.name}
                         />
-                        <Link to={`/artist/${artist.slug}`} className="movie-card-link" />
+
+                        </a>
+
                     </div>
                 ))
             }
@@ -41,36 +42,5 @@ const MainPage = (props) => {
     )
 }
 
-const MoviePage = (props) => {
-    // uncomment to see which props are passed from router
-    //console.log(props)
-    // due to we make slug parameter dynamic in route component,
-    // urlParameters will look like this { slug: 'slug-of-the-selected-movie' }
-    const urlParameters = props.match.params
-    const { loading, error, data } = useQuery(ARTIST_QUERY, {
-        variables:{slug:urlParameters.slug}
-    });
-    if (loading) return <div>Loading</div>
-    if (error) return <div>Unexpected Error: {error.message}</div>
 
-    return (
-        <div className="movie-page">
-        <Link to="/" className="back-button" >Main Page</Link>
-            {data && data.artist &&
-                <div className="movie-page-box">
-                    <img
-                        className="movie-page-image"
-                        src={data.artist.artistUrl}
-                        alt={data.artist.name + " poster"}
-                        title={data.artist.name + " poster"}
-                    />
-                    <div className="movie-page-info">
-                        <h1>{data.artist.name}</h1>
-                        <br />
-                    </div>
-                </div>
-            }
-        </div>
-    )
-}
 export default App

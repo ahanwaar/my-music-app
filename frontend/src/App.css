@@ -1,22 +1,19 @@
 .App {
-  float: right;
+  float: left;
   padding-right: 70px;
-  padding-top: 60px;
+  padding-left:400px;
   padding-bottom: 60px;
+  display: inline-flex;
+  height: 500px;
+
+}
+.artist-card{
+    display: inline;
 }
 
-table{
-   border-spacing: 30px;
-}
-
-.artist-card-image{
-    height:150px;
-    width: 150px;
-    border-spacing: 30px;
-    display: table;
-}
-
-td{
+.App img{
+    overflow: auto;
+  display: block;
   border: 1px solid white;
   width: 150px;
   height:150px;
@@ -26,8 +23,3 @@ td{
                                               rgba(255,255,255,0.3) 90%);
 }
 
-.artist-card-image {
-    display: block;
-    width:150px;
-    height:150px;
-}

@@ -62,6 +62,7 @@ a{
   padding-bottom: 60px;
 }
 .part1 td {
+  position: static;
   border: 1px solid white;
   width: 150px;
   height:150px;
