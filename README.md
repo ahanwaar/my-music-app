@@ -29,6 +29,8 @@ Part 2:
   Part 3:
 ----------------------------
 #### Editing the backend
- 1. Change the APIs to GraphQl.
+ 1. Editing the models.
+ 2. adding schema.
+ 3. setting up the front end components.
   
   
